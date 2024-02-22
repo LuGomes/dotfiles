@@ -1,0 +1,11 @@
+# MacOS
+.DS_Store
+.Thrashes
+
+# Python virtual environments
+*.venv
+.python-version
+
+# Editors
+*.vscode
+*.code-workspace

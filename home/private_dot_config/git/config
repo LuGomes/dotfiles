@@ -5,6 +5,7 @@
 	process = git-lfs filter-process
 [core]
 	editor = code --wait
+	excludesfile = ~/.config/git/ignore
 [pull]
 	rebase = false
 [user]
