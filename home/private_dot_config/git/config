@@ -1,0 +1,13 @@
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[core]
+	editor = code --wait
+[pull]
+	rebase = false
+[user]
+	email = lugomes.eq@gmail.com
+	name = Luciana Gomes
+
