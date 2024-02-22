@@ -1,0 +1,85 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# /usr/sbin/softwareupdate -install-rosetta -agree-to-license
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+	git
+	git zsh-syntax-highlighting
+	zsh-autosuggestions
+)
+
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
+
+# User configuration
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+
+# Syntax highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source ~/.bashrc.bastion.sh
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$HOME/.poetry/bin:$PATH"
+python=/usr/bin/python3
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export CLOUDSDK_PYTHON="/Library/Frameworks/Python.framework/Versions/3.11/bin/python3"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/luciana/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/luciana/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/luciana/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/luciana/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+alias python=/usr/local/bin/python3
+
+eval "$(rbenv init - zsh)"
+
+# Created by `pipx` on 2023-09-27 18:17:43
+export PATH="$PATH:/Users/luciana/.local/bin"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit
+export PATH=/usr/local/Caskroom/redis-stack-server/7.2.0-v7/bin:$PATH
+
+alias openbb='/Applications/OpenBB\ Terminal/OpenBB\ Terminal'
+
+export PATH=/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin:$PATH
