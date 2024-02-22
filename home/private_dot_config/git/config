@@ -3,12 +3,43 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[github]
+	user = lugomes
 [core]
 	editor = code --wait
 	excludesfile = ~/.config/git/ignore
+	pager = delta
 [pull]
-	rebase = false
+	rebase = true
 [user]
 	email = lugomes.eq@gmail.com
 	name = Luciana Gomes
-
+[help]
+	autoCorrect = prompt
+[merge]
+	conflictstyle = zdiff3
+[rebase]
+	autosquash = true
+	autoStash = true
+[push]
+	autosetupremote = true
+	default = simple
+[url "git@github.com:"]
+	insteadOf = "https://github.com/"
+[interactive]
+	diffFilter = delta --color-only
+[color]
+	ui = true
+[diff]
+	algorithm = histogram
+	colorMoved = default
+[delta]
+	features = line-numbers decorations
+	whitespace-error-style = 22 reverse
+	syntax-theme = Monokai Extended
+[delta "decorations"]
+	plus-style = "syntax #012800"
+	minus-style = "normal #340001"
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
